@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Chat with Color Changer & Screenshare</title>
+  <style>
+    video {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Video Chat</h1>
+    <div id="video-container">
+      <video id="localVideo" autoplay muted></video>
+      <video id="remoteVideo" autoplay></video>
+    </div>
+    <div>
+      <label for="colorPicker">Choose your background color:</label>
+      <input type="color" id="colorPicker">
+    </div>
+    <div>
+      <button id="startButton">Start Call</button>
+      <button id="endButton">End Call</button>
+      <button id="screenshareButton">Share Screen</button>
+    </div>
+    <div>
+      <label for="roomCode">Room Code:</label>
+      <input type="text" id="roomCode" readonly>
+      <button id="copyButton">Copy</button>
+    </div>
+  </div>
+
+  <script>
+    // Functions to handle call start, end, screenshare, and color change
+
+    // Function to generate random room code
+    function generateRoomCode(length) {
+      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      let result = '';
+      for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+      }
+      return result;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const startButton = document.getElementById('startButton');
+      const endButton = document.getElementById('endButton');
+      const screenshareButton = document.getElementById('screenshareButton');
+      const colorPicker = document.getElementById('colorPicker');
+      const localVideo = document.getElementById('localVideo');
+      const remoteVideo = document.getElementById('remoteVideo');
+      const roomCodeInput = document.getElementById('roomCode');
+      const copyButton = document.getElementById('copyButton');
+      let roomCode = generateRoomCode(6); // Generate a random room code
+
+      startButton.addEventListener('click', () => {
+        // Add code to start call
+      });
+
+      endButton.addEventListener('click', () => {
+        // Add code to end call
+      });
+
+      screenshareButton.addEventListener('click', () => {
+        // Add code to initiate screenshare
+      });
+
+      colorPicker.addEventListener('change', () => {
+        // Change background color
+        document.body.style.backgroundColor = colorPicker.value;
+      });
+
+      // Update room code input
+      roomCodeInput.value = roomCode;
+
+      // Copy room code to clipboard
+      copyButton.addEventListener('click', () => {
+        roomCodeInput.select();
+        document.execCommand('copy');
+        alert('Room code copied to clipboard');
+      });
+    });
+  </script>
+</body>
+</html>
