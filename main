@@ -35,8 +35,6 @@
   </div>
 
   <script>
-    // Functions to handle call start, end, screenshare, and color change
-
     // Function to generate random room code
     function generateRoomCode(length) {
       const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -52,8 +50,6 @@
       const endButton = document.getElementById('endButton');
       const screenshareButton = document.getElementById('screenshareButton');
       const colorPicker = document.getElementById('colorPicker');
-      const localVideo = document.getElementById('localVideo');
-      const remoteVideo = document.getElementById('remoteVideo');
       const roomCodeInput = document.getElementById('roomCode');
       const copyButton = document.getElementById('copyButton');
       let roomCode = generateRoomCode(6); // Generate a random room code
@@ -70,7 +66,7 @@
         // Add code to initiate screenshare
       });
 
-      colorPicker.addEventListener('change', () => {
+      colorPicker.addEventListener('input', () => {
         // Change background color
         document.body.style.backgroundColor = colorPicker.value;
       });
